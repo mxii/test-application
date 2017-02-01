@@ -8,7 +8,7 @@ If you login with facebook after you have navigated to the site for the first ti
  
  This is a hack from my end to make sure the graph doesn't get called if the particular variable is not null.
  
- I need to get this working not just for facebook login, but also Google login too.
+ I need to get this working not just for facebook login, but also Google login and email and password
  
 So having the auth subscribe in both locations I don't think is a clean approach.
 
