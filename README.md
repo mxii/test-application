@@ -1,3 +1,17 @@
+## The Issue
+
+The issue is this:
+
+If you login with facebook after you have navigated to the site for the first time it'll work and auth.facebook.uid will be available, if then you immediatly logout and log back in with facebook auth.facebook.uid is no longer available, Inside login.service I have the following if statement
+
+ if (auth.facebook.uid == null) return;
+ 
+ This is a hack from my end to make sure the graph doesn't get called if the particular variable is not null.
+ 
+ I need to get this working not just for facebook login, but also Google login and email and password
+ 
+So having the auth subscribe in both locations I don't think is a clean approach.
+
 # TestApplication
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21.
@@ -5,27 +19,9 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
