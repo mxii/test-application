@@ -1,5 +1,5 @@
 // Modules
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,18 +16,24 @@ import { AlertModule } from 'ng2-bootstrap/alert';
 import { loginRouting } from './login-routing';
 
 @NgModule({
-    imports: [ // Modules
-        ReactiveFormsModule,
-        FormsModule,        
-        loginRouting,
-        AlertModule.forRoot(),
-    ],
-    declarations: [ // Components
-        LoginComponent
-    ],
-    providers: [ // Services
-        LoginService
-    ]
+   imports: [ // Modules
+      ReactiveFormsModule,
+      FormsModule,
+      loginRouting,
+      AlertModule.forRoot(),
+   ],
+   declarations: [ // Components
+      LoginComponent
+   ],
+   providers: [ // Services --> DO NOT INCLUDE IN OUR LAZY-LOADED MODULE??
+      LoginService
+   ]
 })
-
-export class LoginModule { }
+export class LoginModule {
+   //  static forRoot(): ModuleWithProviders {
+   //      return {
+   //          ngModule: LoginModule,
+   //          providers: [LoginService]
+   //      };
+   //  }
+}

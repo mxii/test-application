@@ -4,35 +4,29 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Http } from '@angular/http';
 
 @Component({
-    selector: 'login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+   selector: 'login',
+   templateUrl: './login.component.html',
+   styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
 
-    constructor(private af: AngularFire, private http: Http, private service: LoginService) { }
+   constructor(private af: AngularFire, private http: Http, private service: LoginService) { }
 
-    ngOnInit() {
+   ngOnInit() {
 
-    }
+   }
 
-    ngOnDestroy() {
-        console.log("destroy");
-    }
+   ngOnDestroy() {
+      console.log("destroy");
+   }
 
-    loginFacebook() {
+   loginFacebook() {
+      this.service.loginWithFacebook();
+   }
 
-        this.service.loginWithFacebook().subscribe(data => {
-            console.log(data);
-            //this.getFacebookInfo();
-        });
+   loginGoogle() {
 
-
-    }
-
-    loginGoogle() {
-      
-    }
+   }
 
 }
