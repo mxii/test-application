@@ -25,8 +25,8 @@ import { loginRouting } from './login-routing';
    declarations: [ // Components
       LoginComponent
    ],
-   providers: [ // Services --> DO NOT INCLUDE IN OUR LAZY-LOADED MODULE??
-      LoginService
+   providers: [ // Services
+      //LoginService --> moved to app.modul !
    ]
 })
 export class LoginModule {

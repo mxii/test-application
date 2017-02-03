@@ -14,8 +14,6 @@ import { HomeComponent } from './home/home.component';
         ])
     ],
     exports: [RouterModule]
-
-
 })
 
 export class AppRoutingModule { }

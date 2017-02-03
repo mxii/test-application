@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 
+import { LoginService } from './login/service/login.service';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDj8qqAoCma4VdZeDGVjfXOzgyf_QoTXVs",
@@ -37,7 +39,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

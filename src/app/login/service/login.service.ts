@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, } from 'angularfire2';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 
@@ -10,13 +10,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginService {
 
-   public isLoggedIn: boolean = false;
+   public isLoggedIn = new BehaviorSubject<boolean>(false);
    private _authSubscription: Subscription;
    private _fbAccessToken = '';
 
    constructor(private af: AngularFire, private http: Http) {
-
-      console.log('will be constrcuted twice?', this._authSubscription); // cause of lazy loading?!
 
       if (!this._fbAccessToken) {
          this._fbAccessToken = localStorage.getItem('fat');
@@ -24,12 +22,11 @@ export class LoginService {
 
       this._authSubscription = this.af.auth.subscribe(auth => {
          if (!auth) {
-            this.isLoggedIn = false;
-            console.log('LOGGED OUT!');
+            this.isLoggedIn.next(false);
             return;
          }
 
-         this.isLoggedIn = true;
+         this.isLoggedIn.next(true);
 
          if (auth.facebook) {
             // WE ARE LOGGED IN VIA FACEBOOK .. !!

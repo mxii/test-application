@@ -1,21 +1,18 @@
 import { LoginService } from './service/login.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-import { Http } from '@angular/http';
+
+import { AngularFire } from 'angularfire2';
 
 @Component({
    selector: 'login',
    templateUrl: './login.component.html',
    styleUrls: ['./login.component.css']
 })
-
 export class LoginComponent implements OnInit {
 
-   constructor(private af: AngularFire, private http: Http, private service: LoginService) { }
+   constructor(private af: AngularFire, private service: LoginService) { }
 
-   ngOnInit() {
-
-   }
+   ngOnInit() { }
 
    ngOnDestroy() {
       console.log("destroy");
